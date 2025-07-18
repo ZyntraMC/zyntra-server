@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+archivesBaseName = 'application-lobby'
+version = 'beta'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://oss.sonatype.org/content/groups/public/' }
+    maven { url 'https://repo.inventivetalent.org/content/repositories/releases'}
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://repo.viaversion.com' }
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+
+    implementation project(":sync-cosmetics")
+
+    compileOnly files(
+            "D:/zyntra-studios/.jars/Builds/main-collection.jar",
+            "D:/zyntra-studios/.jars/1.8.8-R0.1-SNAPSHOT.jar",
+    )
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+}
+
+shadowJar {
+    archiveFileName = "application-lobby.jar"
+    destinationDirectory = file("D:/zyntra-studios/.jars/Builds")
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    def props = [version: version]
+
+    inputs.properties props
+
+    filteringCharset 'UTF-8'
+
+    filesMatching("*.yml") {
+        expand props
+    }
+}

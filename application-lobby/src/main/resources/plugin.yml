@@ -1,0 +1,6 @@
+name: application
+main: mc.zyntra.Main
+version: 1.0
+author: yWoxys
+depend:
+  - bukkit-data

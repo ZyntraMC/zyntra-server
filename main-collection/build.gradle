@@ -1,0 +1,70 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+archivesBaseName = 'main-collection'
+version = 'beta'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://oss.sonatype.org/content/groups/public/' }
+    maven { url 'https://repo.inventivetalent.org/content/repositories/releases'}
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://repo.viaversion.com' }
+    maven { url 'https://repo.codemc.io/repository/maven-snapshots/' }
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+dependencies {
+    implementation (
+            "org.mongodb:mongodb-driver:3.12.11",
+            'net.wesjd:anvilgui:1.10.7-SNAPSHOT',
+            'redis.clients:jedis:2.9.0',
+            'org.apache.commons:commons-pool2:2.11.1',
+            'org.json:json:20210307',
+            'com.google.code.gson:gson:2.8.9',
+            'com.viaversion:viaversion-api:[4.0.0,5.0.0)',
+            'us.myles:viaversion:1.0.4',
+    )
+
+    compileOnly files(
+            "D:/zyntra-studios/.jars/FlameCord.jar",
+            "D:/zyntra-studios/.jars/1.8.8-R0.1-SNAPSHOT.jar",
+            "D:/zyntra-studios/.jars/ProtocolLib.jar"
+    )
+    def lombok = 'org.projectlombok:lombok:1.18.22'
+
+    compileOnly lombok
+    annotationProcessor lombok
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+}
+
+shadowJar {
+    archiveFileName = "main-collection.jar"
+    destinationDirectory = file("D:/zyntra-studios/.jars/Builds")
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+processResources {
+    def props = [version: version]
+
+    inputs.properties props
+
+    filteringCharset 'UTF-8'
+
+    filesMatching("*.yml") {
+        expand props
+    }
+}

@@ -1,0 +1,10 @@
+rootProject.name = 'zyntra-studios'
+include 'main-collection'
+include 'match-application'
+include 'secure-auth'
+include 'application-lobby'
+include 'match-bedwars'
+include 'match-skywars'
+include 'sync-cosmetics'
+include 'server-manager'
+

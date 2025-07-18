@@ -1,0 +1,5 @@
+name: arcade
+main: mc.zyntra.Leading
+version: 1.0
+author: yWoxys
+depend: [bukkit-data]

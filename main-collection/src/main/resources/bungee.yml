@@ -1,0 +1,5 @@
+name: server-data
+author: yWoxys
+version: 1.0.0
+main: mc.zyntra.server.ServerMain
+description: Professionally designed BungeeCord version administrative system and all rights reserved to Zyntra.

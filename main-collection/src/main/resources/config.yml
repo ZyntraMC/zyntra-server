@@ -1,0 +1,13 @@
+server:
+  name: "unknown"
+  type: UNKNOWN
+motd:
+  maintenance: "&d&lZyntra &f» &cManutenção{breakLine}&eAcompanhe-nos no &bTwitter&e: &f@ZyntraStudios"
+  default: "&d&lZyntra &f» &6Heróis ascendem, mistérios aguardam!{breakLine}&eAcompanhe-nos no &bTwitter&e: &f@ZyntraStudios"
+database:
+  mongodb:
+    uri: mongodb://pombowombo:wc211123@node.duzymc.com.br:2024
+  redis:
+    address: node.zyntrastudios.com
+    port: 27107
+    password: 10101010

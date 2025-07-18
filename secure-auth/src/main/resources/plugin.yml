@@ -1,0 +1,14 @@
+name: secure-auth
+main: mc.zyntra.Secure
+version: 1.0.0
+author: yWoxys
+depend:
+  - bukkit-data
+commands:
+  login:
+    aliases:
+      - logar
+  register:
+    aliases:
+      - registrar
+      - cadastrar

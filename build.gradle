@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group = 'mc.zyntra'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    allprojects {
+        apply plugin: 'java'
+
+        afterEvaluate {
+            group = "mc.zyntra"
+            version = 'beta'
+
+            compileJava.options.encoding('UTF-8')
+
+            repositories {
+                mavenCentral()
+                mavenLocal()
+            }
+
+            dependencies {
+                def lombok = 'org.projectlombok:lombok:1.18.24'
+
+                compileOnly lombok
+                annotationProcessor lombok
+            }
+        }
+    }
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
