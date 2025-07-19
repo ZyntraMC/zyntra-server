@@ -90,7 +90,7 @@ public class TagCommand implements CommandClass {
                 NametagController.getInstance().setNametag(target.toPlayer().getPlayer(), Tag.MEMBRO);
 
                 target.toPlayer().getPlayer().playSound(target.toPlayer().getPlayer().getLocation(), Sound.VILLAGER_NO, 1.0F, 1.0F);
-                sender.sendMessage("§aTag " + tag.getColoredName() + "§c removida do jogador " + target.getName() + ".");
+                sender.sendMessage("§cTag " + tag.getColoredName() + "§c removida do jogador " + target.getName() + ".");
                 target.sendMessage("§cVocê perdeu a tag " + tag.getColoredName() + "§c da sua conta.");
 
             } else {
