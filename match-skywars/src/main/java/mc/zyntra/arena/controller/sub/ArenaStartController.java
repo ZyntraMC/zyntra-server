@@ -1,8 +1,8 @@
-package mc.zyntra.arena.controller;
+package mc.zyntra.arena.controller.sub;
 
 import mc.zyntra.Skywars;
 import mc.zyntra.arena.Arena;
-import mc.zyntra.game.GameState;
+import mc.zyntra.arena.enums.GameState;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -39,12 +39,13 @@ public class ArenaStartController {
                             return;
                         }
 
-                        if (time <= 10) {
+                        if (time <= 5) {
                             sendMessage("§eA partida irá começar em §b" + time + "§e segundos!");
                         }
 
                         if (time <- 0) {
                             arena.setState(GameState.INGAME);
+                            new ArenaGameController(arena).startGame();
                             cancel();
                         }
                         break;

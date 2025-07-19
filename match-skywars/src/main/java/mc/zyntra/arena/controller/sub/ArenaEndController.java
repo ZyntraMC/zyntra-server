@@ -1,8 +1,8 @@
-package mc.zyntra.arena.controller;
+package mc.zyntra.arena.controller.sub;
 
 import mc.zyntra.Skywars;
 import mc.zyntra.arena.Arena;
-import mc.zyntra.game.GameState;
+import mc.zyntra.arena.enums.GameState;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;

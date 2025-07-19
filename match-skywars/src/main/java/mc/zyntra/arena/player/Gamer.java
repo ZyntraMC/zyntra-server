@@ -1,4 +1,4 @@
-package mc.zyntra.player;
+package mc.zyntra.arena.player;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,5 +1,5 @@
 name: arcade
-main: mc.zyntra.Leading
+main: mc.zyntra.Skywars
 version: 1.0
 author: yWoxys
 depend: [bukkit-data]

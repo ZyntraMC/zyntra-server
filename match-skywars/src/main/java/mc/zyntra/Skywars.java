@@ -1,7 +1,7 @@
 package mc.zyntra;
 
 import lombok.Getter;
-import lombok.Setter;
+import mc.zyntra.arena.controller.ArenaController;
 import mc.zyntra.bukkit.BukkitMain;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -9,6 +9,9 @@ public class Skywars extends JavaPlugin {
 
     @Getter
     private static Skywars instance;
+
+    @Getter
+    private ArenaController arenaController;
 
     @Override
     public void onLoad() {
@@ -18,7 +21,8 @@ public class Skywars extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        super.onEnable();
+        this.arenaController = new ArenaController();
+        getArenaController().loadAllArenas();
 
         BukkitMain.getInstance().loadCommandClasses(this, "mc.zyntra.match.command");
         BukkitMain.getInstance().loadListenerClasses(this, "mc.zyntra.match");
@@ -26,5 +30,6 @@ public class Skywars extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        getLogger().info("[Skywars] Plugin desligado.");
     }
 }
